@@ -1,5 +1,28 @@
 <%- include('../partials/header') %>
 
+<div class="container" style="padding: 2rem;text-align-last:left;background-color: rgb(255, 255, 255);">
+    <table class="table" id="main-tb">
+        <thead>
+            <tr>
+                <th scope="col"></th>
+                <th scope="col">Event</th>
+                <th scope="col">Hosted By</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <% events.forEach(function(event) { %>
+                <tr>
+                    <td><form action="/events/<%= event.id %>?_method=DELETE" method="POST"><button type="submit" class="btn btn-outline-info">X</button></form></td>
+                    <td scope="row"><%= event.name %></td>
+                    <td scope="row" class="user-img"><img alt="avatar" src="<%= event.userAvatar %>" referrerpolicy="no-referrer" ><%= event.userName %></td>
+                    <td><a href="/events/<%= event.id %>">DETAILS</a><td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</div>
 
 
 <%- include('../partials/footer') %>
+

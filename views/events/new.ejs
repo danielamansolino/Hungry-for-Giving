@@ -1,5 +1,34 @@
 <%- include('../partials/header') %>
 
+<% if (user) { %>
+    <div class="container" style="padding: 2rem;text-align-last:left;background-color: rgb(255, 255, 255);">
+    <br><h5>Add a New Event</h5><br>
+    <form action="/events" method="POST" autocomplete="off">
+        <label style="padding-bottom: 0.5rem">Name of the event:
+            <input type="text" name="name">
+        </label><br>
+        <label style="padding-bottom: 1rem">Share a short description of your event:
+         <input type="text" name="description">
+        </label><br>
+        <label style="padding-bottom: 1rem">Date of your event:
+            <input type="datetime-local" name="eventDate">
+        </label><br>
+        <label style="padding-bottom: 1rem">Location:
+            <input type="text" name="location">
+        </label><br>
+        <label style="padding-bottom: 1rem">Number of guests:
+            <input type="text" name="participans">
+        </label><br>
+        <label style="padding-bottom: 1rem">Food you need for your event:
+            <input type="text" name="itemsNeeded">
+        </label><br><br>
+        <button type="submit" class="btn btn-outline-primary">Add Event</button>
+    </form>
+</div>
+<% } else { %>
+    <h3 style="text-align:center ;">Please Log In to Host an Event</h3>
+<% } %>
+
 
 
 <%- include('../partials/footer') %>

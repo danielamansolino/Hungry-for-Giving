@@ -1,5 +1,16 @@
 <%- include('../partials/header.ejs') %>
 
+<div class="container" style="padding: 2rem;text-align-last:left;background-color: rgb(255, 255, 255);">
+
+    <h2 style="padding-bottom: 1rem"><%= event.name %></h2>
+    <h3 class="user-img" style="padding-bottom: 1rem">Organize by:<img alt="avatar" src="<%= event.userAvatar %>" referrerpolicy="no-referrer"><%= event.userName %></h3>
+    <h3 style="padding-bottom: 1rem">Description: <%= event.description %></h3>
+    <h3 style="padding-bottom: 1rem">Date: <%= event.eventDate %></h3>
+    <h3 style="padding-bottom: 1rem">Location: <%= event.location %></h3>
+    <h3 style="padding-bottom: 1rem">Number of guests: <%= event.participans %></h3>
+    <h3 style="padding-bottom: 1rem">Meal needed: <%= event.itemsNeeded %></h3>
+    <a href="/events/<%= event.id %>/edit">Update Event Details</a>
+</div>  
 
 
 <%- include('../partials/footer.ejs') %>

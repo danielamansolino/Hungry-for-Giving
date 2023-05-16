@@ -1,5 +1,18 @@
 <%- include('./partials/header') %>
 
-<h2 class="text-center">Hello Index Page :)</h2>
+<div class="container" style="padding: 2rem;text-align-last:left;background-color: rgb(255, 255, 255);">
+    <% if (user) { %>
+        <a class="btn btn-outline-primary" href="/events/new">Host an Event</a>
+    <% } else { %>
+        <a class="btn btn-outline-primary"" href="/auth/google">Host an Even</a>
+    <% } %>
+    
+    <p>Help people in need. Connect with your community by hosting a share a meal event</p> 
+    <a class="btn btn-outline-primary"href="/getInvolved">Get Involved</a>
+    <p>Be part of a share a meal event as a volunteer  or providing donations</p>
+    
+</div> 
 
 <%- include('./partials/footer') %>
+
+ 

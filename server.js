@@ -9,6 +9,7 @@ const passport = require('passport')
 const methodOverride = require('method-override')
 
 const indexRouter = require('./routes/index')
+const eventRouter = require('./routes/events')
 
 const app = express()
 
@@ -36,7 +37,6 @@ app.use(passport.initialize())
 app.use(passport.session())
 
 app.use(function (req, res, next) {
-	console.log('this is req.user in server.js', req.user)
 	res.locals.user = req.user
 	next()
 })
@@ -44,6 +44,7 @@ app.use(function (req, res, next) {
 app.use(express.static(path.join(__dirname, 'public')))
 
 app.use('/', indexRouter)
+app.use('/events', eventRouter)
 
 app.use(function (req, res, next) {
 	next(createError(404))
