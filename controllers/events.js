@@ -1,4 +1,5 @@
 const Event = require('../models/event')
+const Donation = require('../models/donation')
 
 // READ -Index
 // get all of the current signed in users Events  
@@ -43,15 +44,37 @@ function create(req, res, next) {
 		.catch(next)
 }
 
+// this functions is working 
+// function show(req, res, next) {
+//     Event.findById(req.params.id)
+//         .then(event => {
+//             res.render('events/show', {
+//                 event,
+//                 title: 'Event Details'
+//         })
+//         })
+// }
+
 function show(req, res, next) {
     Event.findById(req.params.id)
-        .then(event => {
+      .then(event => {
+        console.log(event, 'show page');
+        return Donation.find({ events: event._id })
+          .then(donation => {
+            console.log(donation, 'donation');
             res.render('events/show', {
-                event,
-                title: 'Event Details'
-        })
-        })
-}
+              title: 'Event Details',
+              event,
+              donation
+            });
+          });
+      })
+      .catch((err) => {
+        console.log(err, 'error getting to show page');
+        res.redirect('/events');
+      });
+  }
+
 
 function updateEvent(req, res, next){
     Event.findById(req.params.id)

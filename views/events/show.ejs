@@ -10,7 +10,35 @@
     <h3 style="padding-bottom: 1rem">Number of guests: <%= event.participans %></h3>
     <h3 style="padding-bottom: 1rem">Meal needed: <%= event.itemsNeeded %></h3>
     <a href="/events/<%= event.id %>/edit">Update Event Details</a>
-</div>  
+
+</div> 
+
+<div class="container" style="padding: 2rem;text-align-last:left;background-color: rgb(255, 255, 255);"> 
+  <div id="donationTable">
+    <h3>Donations:</h3>
+  <% if (event.donation.length) { %>
+    <table>
+        <thead>
+            <tr>
+                <th>Donor:</th>
+                <th>Food Donated:</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% event.donation.forEach(function(donation) { %>
+            <tr>
+                <td><%= donation.userName %></td>
+                <td>$<%= donation.itemsDonated %></td>
+            </tr>
+            <% }); %>
+        </tbody>
+    </table>
+    <% } else { %>
+    <h5>No Donations Yet</h5>
+    <% } %>
+    <a href="/events/<%= event._id %>/donations/new">Add Donation</a>
+  </div>
+
 
 
 <%- include('../partials/footer.ejs') %>

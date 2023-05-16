@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-// const donationSchema = require('./donation')
+const donationSchema = require('./donation')
 
 const eventSchema = new mongoose.Schema ({
   name: {
