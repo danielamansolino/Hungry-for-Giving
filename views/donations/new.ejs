@@ -1,5 +1,18 @@
 <%- include('../partials/header') %>
-
+<div class="container" style="padding: 2rem;text-align-last:left;background-color: rgb(255, 255, 255);">
+<table class="table">
+    <thead>
+      <tr>
+          <th scope="col">Meals needded</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td scope="row"><%= event.itemsNeeded %></td>
+        </tr>
+    </tbody>
+</table>
+</div>
 <section class= "donation-details">
     <div class="container" style="padding: 2rem;text-align-last:left;background-color: rgb(255, 255, 255);">   
     <form method="POST" action='/events/<%= event._id %>/donations'>

@@ -23,6 +23,7 @@ function index(req, res, next) {
 }
 
 function newEvent(req, res) {
+    // req.session.lastPage = '/events/new'
     res.render('events/new', {title: 'Host an Event' })
 }
 
@@ -44,18 +45,9 @@ function create(req, res, next) {
 		.catch(next)
 }
 
-// this functions is working 
-// function show(req, res, next) {
-//     Event.findById(req.params.id)
-//         .then(event => {
-//             res.render('events/show', {
-//                 event,
-//                 title: 'Event Details'
-//         })
-//         })
-// }
 
 function show(req, res, next) {
+    if (req.body.itemsNeeded) req.body.itemsNeeded = req.body.itemsNeeded.replace(/,/g, ', ')
     Event.findById(req.params.id).populate(['donation','volunteer'])
         .then(event => {
             console.log(event, 'show page')
@@ -73,7 +65,7 @@ function show(req, res, next) {
 
 function updateEvent(req, res, next){
     Event.findById(req.params.id)
-        .then(event => {   
+        .then(event => {  
             res.render('events/edit', {
                 event,
                 title: 'Event Edit'
