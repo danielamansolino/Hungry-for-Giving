@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 const donationSchema = require('./donation')
+const volunteer = require('./volunteer')
 
 const eventSchema = new mongoose.Schema ({
   name: {
@@ -32,6 +33,11 @@ const eventSchema = new mongoose.Schema ({
   donation: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Donation'
+
+  }],
+  volunteer: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Volunteer'
 
   }]
 },{

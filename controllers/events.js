@@ -56,23 +56,18 @@ function create(req, res, next) {
 // }
 
 function show(req, res, next) {
-    Event.findById(req.params.id)
-      .then(event => {
-        console.log(event, 'show page');
-        return Donation.find({ events: event._id })
-          .then(donation => {
-            console.log(donation, 'donation');
-            res.render('events/show', {
-              title: 'Event Details',
-              event,
-              donation
-            });
-          });
-      })
-      .catch((err) => {
-        console.log(err, 'error getting to show page');
-        res.redirect('/events');
-      });
+    Event.findById(req.params.id).populate('donation')
+        .then(event => {
+            console.log(event, 'show page')
+            return res.render('events/show', {
+                title: 'Event Details',
+                event
+            })
+        })
+        .catch((err) => {
+            console.log(err, 'error getting to show page');
+            res.redirect('/events');
+    });
   }
 
 

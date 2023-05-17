@@ -11,24 +11,26 @@
     <h3 style="padding-bottom: 1rem">Meal needed: <%= event.itemsNeeded %></h3>
     <a href="/events/<%= event.id %>/edit">Update Event Details</a>
 
-</div> 
+</div>
 
 <div class="container" style="padding: 2rem;text-align-last:left;background-color: rgb(255, 255, 255);"> 
   <div id="donationTable">
     <h3>Donations:</h3>
   <% if (event.donation.length) { %>
-    <table>
+    <table class="table">
         <thead>
             <tr>
-                <th>Donor:</th>
-                <th>Food Donated:</th>
+                <th scope="col">Donor</th>
+                <th scope="col">Food Donated</th>
+                <th scope="col"></th>
             </tr>
         </thead>
         <tbody>
             <% event.donation.forEach(function(donation) { %>
             <tr>
-                <td><%= donation.userName %></td>
-                <td>$<%= donation.itemsDonated %></td>
+                <td scope="row"><%= donation.userName %></td>
+                <td scope="row"><%= donation.itemsDonated %></td>
+                <td><form action="/donations/<%= donation.id %>?_method=DELETE" method="POST"><button type="submit" class="btn btn-outline-info">Delete</button></form></td>
             </tr>
             <% }); %>
         </tbody>
@@ -39,6 +41,33 @@
     <a href="/events/<%= event._id %>/donations/new">Add Donation</a>
   </div>
 
+<div class="container" style="padding: 2rem;text-align-last:left;background-color: rgb(255, 255, 255);"> 
+  <div id="volunteerTable">
+    <h3>Volunteer:</h3>
+  <% if (event.volunteer.length) { %>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Volunteer</th>
+                <th scope="col">Message</th>
+               
+            </tr>
+        </thead>
+        <tbody>
+            <% event.volunteer.forEach(function(volunteer) { %>
+            <tr>
+                <td scope="row"><%= volunteer.userName %></td>
+                <td scope="row"><%= volunteer.message %></td>
+                
+            </tr>
+            <% }); %>
+        </tbody>
+    </table>
+    <% } else { %>
+    <h5>No volunteers Yet</h5>
+    <% } %>
+    <a href="/events/<%= event._id %>/volunteer/new">Add Volunteer</a>
+</div>
 
 
 <%- include('../partials/footer.ejs') %>

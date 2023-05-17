@@ -2,28 +2,46 @@ const event = require('../models/event');
 const Event = require('../models/event')
 const Volunteer = require('../models/volunteer')
 
-function create(req, res) {
-    Event.findById(req.params.id)
-    .then( event => {
+
+function newVolunteer(req, res) {
     req.body.user = req.user._id;
     req.body.userName = req.user.name;
-    req.body.userAvatar = req.user.avatar;
-    event.volunteer.push(req.body)
-    return event.save()
-    })
-    .then (() => {
-        res.redirect(`/event/${event._id}`)
-    })
-    .catch(err => {
-        console.log(err)
-    })
+    Event.findById(req.params.id)
+        .then(event => {
+            res.render('volunteer/new', {title: 'Add Volunteer', event}) 
+        }).catch(err => {
+            console.log('error in volunteer', err)
 
+            res.send('error in volunteer check terminal')
+    })
+}
+
+function addVolunteer(req, res, next) {
+    req.body.event = req.params.id;
+    req.body.user = req.user._id;
+    req.body.userName = req.user.name;
+    Volunteer.create(req.body)
+        .then(volunteer => {
+            console.log(volunteer)
+            // now I need to find the event that this donation belongs to
+            // then I need to add this donations ID to push it to the event donation array
+            // then I need to save
+            Event.findById(req.params.id)
+                .then(event => {
+                    console.log(event)
+                    event.volunteer.push(volunteer._id)
+                    return event.save()
+                })   
+            res.redirect(`/events/${req.params.id}`)// I do this last
+        })
+        .catch(next)
 }
 
 
 
 
-
-module.exports = create
-// module.exports = { addVolunteer }
+module.exports = {
+    newVolunteer,
+    addVolunteer
+}
   

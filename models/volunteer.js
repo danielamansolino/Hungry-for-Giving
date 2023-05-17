@@ -6,10 +6,11 @@ const volunteerSchema = new mongoose.Schema({
         required: true
       },
     user: {
-        type: mongooseSchema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
         require: true
-      },
+    },
+    userName: String,
 },{
     timestamps: true
 })

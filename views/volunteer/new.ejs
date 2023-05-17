@@ -1,0 +1,14 @@
+<%- include('../partials/header') %>
+
+    <% if (user) { %>
+        <div class="container" style="padding: 2rem;text-align-last:left;background-color: rgb(255, 255, 255);">
+            <form method="POST" action='/events/<%= event._id %>/volunteer'>
+            <label>Volunteer</label>
+            <textarea name="volunteer"></textarea>
+            <button type="submit">Become a Volunteer</button>
+            </form>
+        </div> 
+    <% } %>
+
+<%- include('../partials/footer') %>
+
