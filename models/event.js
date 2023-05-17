@@ -38,7 +38,6 @@ const eventSchema = new mongoose.Schema ({
   volunteer: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Volunteer'
-
   }]
 },{
     timestamps: true

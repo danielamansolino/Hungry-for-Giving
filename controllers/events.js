@@ -56,7 +56,7 @@ function create(req, res, next) {
 // }
 
 function show(req, res, next) {
-    Event.findById(req.params.id).populate('donation')
+    Event.findById(req.params.id).populate(['donation','volunteer'])
         .then(event => {
             console.log(event, 'show page')
             return res.render('events/show', {
@@ -73,7 +73,7 @@ function show(req, res, next) {
 
 function updateEvent(req, res, next){
     Event.findById(req.params.id)
-        .then(event => {    
+        .then(event => {   
             res.render('events/edit', {
                 event,
                 title: 'Event Edit'
