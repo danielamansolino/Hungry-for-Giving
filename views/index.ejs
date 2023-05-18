@@ -1,24 +1,22 @@
 <%- include('./partials/header') %>
 
-<div class="container" style="padding: 2rem;text-align-last:center;background-color: rgb(255, 255, 255);">
-    <h3 style="padding-bottom: 2rem;padding-top: 2rem;">Help people in need. Connect with your community by hosting a share a meal event</h3> 
-    <% if (user) { %>
-        <a class="btn btn-outline-primary" href="/events/new">Host an Event</a>
-    <% } else { %>
-        <a class="btn btn-outline-primary" href="/auth/google">Host an Event</a>
-    <% } %>
-    <h3 style="padding-bottom: 2rem;padding-top: 2rem;">Be part of a share a meal event as a volunteer  or providing donations</h3>
-    <a class="btn btn-outline-primary" href="/get-involved">Get Involved</a>
-</div> 
-<div id="love" class="container" style="padding: 2rem;text-align-last:center;background-color: rgb(247, 247, 247);">
-    I 
-    <svg class="heart" viewBox="0 0 32 29.6">
-    <path d="M23.6,0c-3.4,0-6.3,2.7-7.6,5.6C14.7,2.7,11.8,0,8.4,0C3.8,0,0,3.8,0,8.4c0,9.4,9.5,11.9,16,21.2
-    c6.1-9.3,16-12.1,16-21.2C32,3.8,28.2,0,23.6,0z"/>
-    </svg> 
-    helping!
-</div>
-
+    <div class="container" style="padding: 2rem;text-align-last:center;background-color: rgb(255, 255, 255);">
+        <h3 style="padding-bottom: 2rem;padding-top: 2rem;">Help people in need. Connect with your community by hosting a share a meal event.</h3> 
+        <% if (user) { %>
+            <a class="btn btn-outline-primary" href="/events/new">Host an Event</a>
+        <% } else { %>
+            <a class="btn btn-outline-primary" href="/auth/google">Host an Event</a>
+        <% } %>
+        <h3 style="padding-bottom: 2rem;padding-top: 2rem;text-align: center;">Be part of a share a meal event! You can become a volunteer or provide donations.</h3>
+        <a class="btn btn-outline-primary" href="/get-involved">Get Involved</a>
+    </div> 
+    <div id="love" class="container" style="padding: 2rem;text-align-last:center;background-color: rgb(247, 247, 247);">
+        I 
+            <svg class="heart" viewBox="0 0 32 29.6">
+            <path d="M23.6,0c-3.4,0-6.3,2.7-7.6,5.6C14.7,2.7,11.8,0,8.4,0C3.8,0,0,3.8,0,8.4c0,9.4,9.5,11.9,16,21.2
+            c6.1-9.3,16-12.1,16-21.2C32,3.8,28.2,0,23.6,0z"/>
+            </svg> helping!
+    </div>
 
 <%- include('./partials/footer') %>
 

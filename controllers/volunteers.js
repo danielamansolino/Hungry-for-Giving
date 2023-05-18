@@ -35,9 +35,6 @@ function addVolunteer(req, res, next) {
         .catch(next)
 }
 
-
-
-
 module.exports = {
     newVolunteer,
     addVolunteer

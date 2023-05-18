@@ -6,7 +6,18 @@ The app assist the host to plan a share meal event to help people in need. When 
 
 ## Screenshots
 - Home screen 
-![Home Page](public/images/home-page.jpg)
+![Home Page](public/images/screen-shots/home-page.png)
+![Log-in](public/images/screen-shots/log-in.png)
+![About Us](public/images/screen-shots/about-us.png)
+![Events](public/images/screen-shots/events.png)
+![Get Involved](public/images/screen-shots/get-involved.png)
+![Host a Event](public/images/screen-shots/host-event.png)
+![Event Details](public/images/screen-shots/details.png)
+![Update Event](public/images/screen-shots/update.png)
+![Add Donation](public/images/screen-shots/add-donation.png)
+![Volunteer](public/images/screen-shots/volunteer.png)
+![Small Screen View](public/images/screen-shots/small-screen.png)
+![Unauthorized](public/images/screen-shots/unauthorized.png)
 ## Technologies Used
 - Node
 - Express

@@ -28,7 +28,6 @@ const eventSchema = new mongoose.Schema ({
     require: true
 },
   participans: Number,
-  // itemsNeeded: [{name: String}],
   itemsNeeded: [String],
   donation: [{
     type: mongoose.Schema.Types.ObjectId,

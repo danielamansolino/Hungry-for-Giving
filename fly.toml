@@ -1,0 +1,23 @@
+# fly.toml app configuration file generated for hungryforgiving on 2023-05-18T11:50:02-04:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = "hungryforgiving"
+primary_region = "ewr"
+
+[env]
+  PORT = "3000"
+  DATABASE_URI = "mongodb+srv://danielamosqueragranda:danielaGA1234@cluster0.qlxg6dt.mongodb.net/hungry-for-giving?retryWrites=true&w=majority"
+  GOOGLE_CLIENT_ID = "891458271298-o8sc4b2s3p6vqon6f4hv84jc2gd77h5m.apps.googleusercontent.com"
+  GOOGLE_SECRET = "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"
+  GOOGLE_CALLBACK = "https://hungryforgiving.fly.dev/oauth2callback"
+  SECRET = "Nomnomnom"
+
+
+[http_service]
+  internal_port = 3000
+  force_https = true
+  auto_stop_machines = true
+  auto_start_machines = true
+  min_machines_running = 0

@@ -1,21 +1,19 @@
 <%- include('./partials/header') %>
 
-<div class="container" style="padding: 2rem;text-align-last:left;background-color: rgb(255, 255, 255);">
-    <h4>Do you want to join this anti-hunger movement?<br><br>You have some options:</h4>
-        <p>By hosting a share meal event you will be in charge. Counting on donations and volunteers you can share with people in need not just a meal but a wonderful experience.</p>
-            <% if (user) { %>
-                <a class="btn btn-outline-primary" href="/events/new">Host an Event</a><br><br>
-            <% } else { %>
-                <a class="btn btn-outline-primary" href="/auth/google">Host an Event</a><br><br>
-            <% } %>
-        
-    <h4>How can I become a Volunteer?</h4>
-        <p>Check the share meals events happening around you and pick the one you would like to participate in. You can sign up as a volunteer in the details page of the event you picked.</p>
-        <a class="btn btn-outline-primary" href="/events">Check the Events and Sign up as a Volunteer</a><br><br>
-    
-    <h4>How can I make a donation?</h4>
-        <p>Check the share meals events happening around you and pick the one you would like to make your donation at. You will see a list with the  meals needed for the event in the details page. Click on the donate button and pick which meal you would like to donate. You will bring your donation the day of the event to the event location.</p>
-        <a class="btn btn-outline-primary" href="/events">Check the Events and Donate</a><br><br>
+    <div class="container" style="padding: 2rem;text-align-last:left;background-color: rgb(255, 255, 255);">
+        <h4>Do you want to join this anti-hunger movement?<br><br>You have some options:</h4>
+            <p>By hosting a share meal event you will be in charge. Counting on donations and volunteers you can share with people in need not just a meal but a wonderful experience.</p>
+                <% if (user) { %>
+                    <a class="btn btn-outline-primary" href="/events/new">Host an Event</a><br><br>
+                <% } else { %>
+                    <a class="btn btn-outline-primary" href="/auth/google">Host an Event</a><br><br>
+                <% } %>
+        <h4>How can I become a Volunteer?</h4>
+            <p>Check the share meals events happening around you and pick the one you would like to participate in. You can sign up as a volunteer in the details page of the event you picked.</p>
+            <a class="btn btn-outline-primary" href="/events">Check the Events and Sign up as a Volunteer</a><br><br>
+        <h4>How can I make a donation?</h4>
+            <p>Check the share meals events happening around you and pick the one you would like to make your donation at. You will see a list with the  meals needed for the event in the details page. Click on the donate button and pick which meal you would like to donate. You will bring your donation the day of the event to the event location.</p>
+            <a class="btn btn-outline-primary" href="/events">Check the Events and Donate</a><br><br>
     </div>
 
 <%- include('./partials/footer') %>
