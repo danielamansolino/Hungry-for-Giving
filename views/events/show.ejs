@@ -9,7 +9,7 @@
     <h3 style="padding-bottom: 1rem">Number of guests: <%= event.participans %></h3>
     <h3 style="padding-bottom: 1rem">Meal needed: <%= event.itemsNeeded %></h3>
 
-  <!-- <% if (user === event.user.id) { %>
+  <!-- <% if (user === event.user) { %>
     <a href="/events/<%= event.id %>/edit">Update Event Details</a>    
   <% } else { %>
       
@@ -26,7 +26,6 @@
             <tr>
                 <th scope="col">Donor</th>
                 <th scope="col">Food Donated</th>
-                <!-- <th scope="col"></th> -->
             </tr>
           </thead>
           <tbody>
@@ -34,14 +33,13 @@
               <tr>
                   <td scope="row"><%= donation.userName %></td>
                   <td scope="row"><%= donation.itemsDonated %></td>
-                  <!-- <td><form action="/donations/<%= donation.id %>?_method=DELETE" method="POST"><button type="submit" class="btn btn-outline-info">Delete</button></form></td> -->
               </tr>
             <% }); %>
           </tbody>
-          </table>
-            <% } else { %>
-              <h5>No Donations Yet</h5>
-            <% } %>
+        </table>
+          <% } else { %>
+            <h5>No Donations Yet</h5>
+          <% } %>
           <a href="/events/<%= event._id %>/donations/new">Add Donation</a>
   </div>
 </div>
@@ -49,29 +47,27 @@
 <div class="container" style="padding: 2rem;text-align-last:left;background-color: rgb(255, 255, 255);"> 
   <div id="volunteerTable">
     <h3>Volunteer:</h3>
-  <% if (event.volunteer.length) { %>
-    <table class="table">
-        <thead>
+      <% if (event.volunteer.length) { %>
+        <table class="table">
+          <thead>
             <tr>
-                <th scope="col">Volunteer</th>
-                <th scope="col">Message</th>
-               
+              <th scope="col">Volunteer</th>
+              <th scope="col">Message</th>    
             </tr>
-        </thead>
-        <tbody>
+          </thead>
+          <tbody>
             <% event.volunteer.forEach(function(volunteer) { %>
               <tr>
-                  <td scope="row"><%= volunteer.userName %></td>
-                  <td scope="row"><%= volunteer.message %></td>  
+                <td scope="row"><%= volunteer.userName %></td>
+                <td scope="row"><%= volunteer.message %></td>  
               </tr>
             <% }); %>
-        </tbody>
-    </table>
-    <% } else { %>
-    <h5>No volunteers Yet</h5>
-    <% } %>
-    <a href="/events/<%= event._id %>/volunteer/new">Become a Volunteer</a>
+          </tbody>
+          </table>
+            <% } else { %>
+              <h5>No volunteers Yet</h5>
+            <% } %>
+            <a href="/events/<%= event._id %>/volunteer/new">Become a Volunteer</a>
 </div>
-
 
 <%- include('../partials/footer.ejs') %>
