@@ -21,16 +21,13 @@ function addDonation(req, res, next) {
     Donation.create(req.body)
         .then(donation => {
             console.log(donation)
-            // now I need to find the event that this donation belongs to
-            // then I need to add this donations ID to push it to the event donation array
-            // then I need to save
             Event.findById(req.params.id)
                 .then(event => {
                     console.log(event)
                     event.donation.push(donation._id)
                     return event.save()
                 })   
-            res.redirect(`/events/${req.params.id}`)// I do this last
+            res.redirect(`/events/${req.params.id}`)
         })
         .catch(next)
 }

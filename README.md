@@ -32,7 +32,7 @@ The app assist the host to plan a share meal event to help people in need. When 
 - Images courtesy: [freepik](https://www.freepik.com/")
 
 ## Getting Started
-[Click to go to Hungry for Giving]()
+[Click to go to Hungry for Giving](https://hungryforgiving.fly.dev/)
 
 ## Next Steps
 - I would like to display with google maps api the adress of the event.
