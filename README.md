@@ -49,3 +49,6 @@ The app assists the host to plan a share meal event to help people in need. When
 - I would like to display with google maps api the adress of the event.
 - I would like to personalize the the donations so they can be other items not just food.
 - I want to be able to create a second data base for beneficiaries of the donations. 
+
+## Trello Board
+[Click to go to Hungry for Giving Trello Board](https://trello.com/b/B8U2ZYhv/hungry-for-giving-project-2)
